@@ -13,5 +13,5 @@ setup(
           'requests',
           'flask'
       ],
-  classifiers = [],
+  classifiers = []
 )
