@@ -3,10 +3,11 @@ from flask import Flask, session, redirect, url_for, escape, request, render_tem
 import time
 import json
 import uuid
-import sys
 
 app = Flask(__name__)
-app.secret_key = uuid.uuid4().hex #a random string
+app.secret_key = uuid.uuid4().hex
+
+ldap_mgr = None
 
 @app.route('/', methods=['GET'])
 def lambda_handler(event=None, context=None):
@@ -86,21 +87,10 @@ def event(get_event):
 def timectime(s):
     return time.ctime(int(s)) # datetime.datetime.fromtimestamp(s)
 
-def main(args=None):
-	if args is None:
-		args = sys.argv
-	if len(args) != 4:
-		print("""Ambari LDAP Manager should be invokes as follows:
-				python -m ambari-ldap-manager <http://ambari-host:8080> <username> <password>
-			""")
-		sys.exit(1)
-	else:
-		ambari_url = args[1]
-		username = args[2]
-		password = args[3]
-
-		ldap_mgr = LdapManager(url=ambari_url, api="/api/v1", username=username, password=password)
-		app.run()
+def main(ambari_url, username, password):
+	global ldap_mgr
+	ldap_mgr = LdapManager(url=ambari_url, api="/api/v1", username=username, password=password)
+	app.run()
 
 if __name__ == '__main__':
 	main()
