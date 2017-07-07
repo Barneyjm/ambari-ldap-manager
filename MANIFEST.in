@@ -1,1 +1,1 @@
-include templates/*.html
+include ambari-ldap-manager/templates/*.html
