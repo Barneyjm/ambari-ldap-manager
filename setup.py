@@ -8,6 +8,7 @@ setup(
   author_email = 'jamesbarney71@gmail.com',
   url = 'https://github.com/Barneyjm/ambari-ldap-manager',
   download_url = 'https://github.com/Barneyjm/ambari-ldap-manager/archive/0.6.tar.gz',
+  include_package_data=True
   keywords = ['hadoop', 'ldap', 'active-directory', 'ambari', 'manager'],
   install_requires=[
           'requests',
