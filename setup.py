@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup
 setup(
   name = 'ambari-ldap-manager',
   packages = ['ambari-ldap-manager'], # this must be the same as the name above
