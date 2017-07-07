@@ -11,7 +11,7 @@ setup(
   keywords = ['hadoop', 'ldap', 'active-directory', 'ambari', 'manager'],
   entry_points={
           'console_scripts': [
-              'ambari-ldap-manager = ambari-ldap-manager.ldap_management_server:main'
+              'ambari-ldap-manager = ldap_management_server.main:main'
           ]
       },
   install_requires=[
